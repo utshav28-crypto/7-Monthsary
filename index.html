@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>For My Pretty Puntu ♡</title>
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;font-family:Georgia,serif;
+background:linear-gradient(145deg,#fff0f5,#fce0eb,#fff5f8);
+color:#87465f;text-align:center;
+}
+section{padding:55px 20px;max-width:650px;margin:auto}
+h1{font-size:2.5rem;color:#c65f8a}
+h2{color:#c65f8a}
+p{line-height:1.9}
+button{
+background:#d979a0;color:white;border:0;
+padding:14px 24px;border-radius:30px;
+font-size:15px;cursor:pointer;margin:10px;
+}
+.card{
+background:#ffffffb8;padding:24px;
+border-radius:22px;margin:18px 0;
+box-shadow:0 8px 25px #d88ca522;
+}
+#letter{display:none;text-align:left;white-space:pre-wrap}
+.hidden{display:none}
+.gallery{
+display:grid;grid-template-columns:1fr 1fr;gap:12px;
+}
+.photo{
+background:#f9d8e5;border-radius:15px;
+min-height:145px;display:flex;align-items:center;
+justify-content:center;overflow:hidden;
+}
+.photo img{width:100%;height:100%;object-fit:cover}
+.promise{cursor:pointer}
+.heart{position:fixed;pointer-events:none;
+animation:float 5s linear forwards;z-index:5}
+@keyframes float{
+from{transform:translateY(0);opacity:1}
+to{transform:translateY(-100vh);opacity:0}
+}
+footer{padding:30px;color:#c47797}
+</style>
+</head>
+<body>
+
+<section id="home">
+<p>♡ A LITTLE SOMETHING FOR YOU ♡</p>
+<h1>My pretty puntu</h1>
+<p>I've been keeping a little surprise for you...</p>
+<div class="card">
+<div style="font-size:65px">💌</div>
+<h2>A letter from your person</h2>
+<p>There's something I want you to read.</p>
+<button onclick="openLetter()">Open your letter ♡</button>
+</div>
+</section>
+
+<section id="letterSection" class="hidden">
+<h1>Words from my heart</h1>
+<div class="card">
+<p id="letter"> Hey babe! 7 months of our relationship so proud of us that we came this far together without giving up on each other and hope to go sustainably Crazzy nii how that random conversation lead us to this never knew i would find my soulmate at this young age no matter the distance between us i will always be there for you imagine how proud moment it would be looking back to the old photos we gonna take at the moment when we finally can say we made it . I  wanna see you win and i wanna witness it together you watch me doing things i used to say and me seeing your wish being complete. Let's promise once more that we won't ever leave each other despite the misunderstanding, this long distance and every flaws . i hope to see the world with you and the biggest wish i have is that when i die i want it to on your arms beside you. I love you soo much puntuu. My forever love. Counting days when we officially become husband and wife and a loving parents of a cute child with your eyes.❤️</p>
+</div>
+<button onclick="show('memories')">Our little memories →</button>
+</section>
+
+<section id="memories" class="hidden">
+<h1>Little Pieces of My Favourite Photos ♡</h1>
+<div class="gallery">
+<div class="photo">
+    <img src="photo1.jpg"
+     style="width: 280px;
+            height: 360px;
+            object-fit: cover;
+            border-radius: 15%;"  >
+</div>
+<div class="photo">
+    <img src="photo2.jpg"
+     style="width: 280px;
+            height: 360px;
+            object-fit: cover;
+            border-radius: 15%;"  >
+</div>
+<div class="photo">
+    <img src="photo3.jpg"
+     style="width: 280px;
+            height: 360px;
+            object-fit: cover;
+            border-radius: 15%;"  >
+</div>
+<div class="photo">
+    <img src="photo4.jpg"
+     style="width: 280px;
+            height: 360px;
+            object-fit: cover;
+            border-radius: 15%;"  >
+</div>
+
+</div>
+<p><small> </small></p>
+<button onclick="show('promises')">A few promises →</button>
+</section>
+
+<section id="promises" class="hidden">
+<h1>Little promises, forever ♡</h1>
+<p>Tap each heart to reveal a promise.</p>
+<div class="card promise" onclick="reveal(this,'I promise to listen, even on the days you cannot find the words.')">💗 Promise 01 — Tap me</div>
+<div class="card promise" onclick="reveal(this,'I promise to celebrate your smallest victories as if they were my own.')">💗 Promise 02 — Tap me</div>
+<div class="card promise" onclick="reveal(this,'I promise that distance will never make me forget to make you feel loved.')">💗 Promise 03 — Tap me</div>
+<div class="card promise" onclick="reveal(this,'I promise to keep choosing honesty, patience and kindness.')">💗 Promise 04 — Tap me</div>
+<button onclick="show('final')">One last thing... ♡</button>
+</section>
+
+<section id="final" class="hidden">
+<div style="font-size:65px">🌷</div>
+<h1>Until the distance disappears...</h1>
+<div class="card">
+<p>Different cities, different skies, but somehow the same little world.</p>
+<h2>Happy Monthsary, my pretty puntu.</h2>
+<p>Here's to all the memories we've made and all the ones waiting for us.</p>
+<h1> I love you. ♡ </h1>
+</div>
+<button onclick="hearts()">Send me some love 💗</button>
+</section>
+
+<footer>Made with love, only for you. ♡</footer>
+
+<script>
+function openLetter(){
+show('letterSection');
+document.getElementById('letter').style.display='block';
+}
+function show(id){
+document.querySelectorAll('section').forEach(s=>s.classList.add('hidden'));
+document.getElementById(id).classList.remove('hidden');
+window.scrollTo({top:0,behavior:'smooth'});
+}
+function reveal(el,msg){el.innerText=msg}
+function hearts(){
+for(let i=0;i<30;i++){
+let h=document.createElement('div');
+h.className='heart';h.innerText='💗😍';
+h.style.left=Math.random()*100+'vw';
+h.style.bottom='0';h.style.fontSize=(15+Math.random()*25)+'px';
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),5000);
+}
+}
+</script>
+</body>
+</html>
